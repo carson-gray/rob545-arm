@@ -34,13 +34,6 @@
 #
 # Author: Acorn Pooley, Mike Lautman
 
-## BEGIN_SUB_TUTORIAL imports
-##
-## To use the Python MoveIt interfaces, we will import the `moveit_commander`_ namespace.
-## This namespace provides us with a `MoveGroupCommander`_ class, a `PlanningSceneInterface`_ class,
-## and a `RobotCommander`_ class. More on these below. We also import `rospy`_ and some messages that we will use:
-##
-
 # Python 2/3 compatibility imports
 from __future__ import print_function
 import numpy as np
@@ -67,8 +60,6 @@ except:  # For Python 2 compatibility
 
 from std_msgs.msg import String
 from moveit_commander.conversions import pose_to_list
-
-## END_SUB_TUTORIAL
 
 
 def all_close(goal, actual, tolerance):
@@ -490,53 +481,6 @@ def main():
         # robot.go_to_joint_state()
         print(robot.end_effector_from_joints())
 
-        # input(
-        #     "============ Press `Enter` to execute a movement using a joint state goal ..."
-        # )
-        
-        # print("and away we go!")
-        # print(geometry_msgs.msg.Pose().position.x)
-
-        # tutorial.joint_update(0, -tau/8, 0, -tau/4, 0, tau/6, 0)
-        # # tutorial.go_to_joint_state()
-
-        # # input("============ Press `Enter` to execute a movement using a pose goal ...")
-        # tutorial.go_to_pose_goal()
-
-        
-
-        # input("============ Press `Enter` to plan and display a Cartesian path ...")
-        # cartesian_plan, fraction = tutorial.plan_cartesian_path()
-
-        # input(
-        #     "============ Press `Enter` to display a saved trajectory (this will replay the Cartesian path)  ..."
-        # )
-        # tutorial.display_trajectory(cartesian_plan)
-
-        # input("============ Press `Enter` to execute a saved path ...")
-        # tutorial.execute_plan(cartesian_plan)
-
-        # input("============ Press `Enter` to add a box to the planning scene ...")
-        # tutorial.add_box()
-
-        # input("============ Press `Enter` to attach a Box to the Panda robot ...")
-        # tutorial.attach_box()
-
-        # input(
-        #     "============ Press `Enter` to plan and execute a path with an attached collision object ..."
-        # )
-        # cartesian_plan, fraction = tutorial.plan_cartesian_path(scale=-1)
-        # tutorial.execute_plan(cartesian_plan)
-
-        # input("============ Press `Enter` to detach the box from the Panda robot ...")
-        # tutorial.detach_box()
-
-        # input(
-        #     "============ Press `Enter` to remove the box from the planning scene ..."
-        # )
-        # tutorial.remove_box()
-
-        # print("============ Python tutorial demo complete!")
     except rospy.ROSInterruptException:
         return
     except KeyboardInterrupt:
@@ -545,39 +489,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-## BEGIN_TUTORIAL
-## .. _moveit_commander:
-##    http://docs.ros.org/noetic/api/moveit_commander/html/namespacemoveit__commander.html
-##
-## .. _MoveGroupCommander:
-##    http://docs.ros.org/noetic/api/moveit_commander/html/classmoveit__commander_1_1move__group_1_1MoveGroupCommander.html
-##
-## .. _RobotCommander:
-##    http://docs.ros.org/noetic/api/moveit_commander/html/classmoveit__commander_1_1robot_1_1RobotCommander.html
-##
-## .. _PlanningSceneInterface:
-##    http://docs.ros.org/noetic/api/moveit_commander/html/classmoveit__commander_1_1planning__scene__interface_1_1PlanningSceneInterface.html
-##
-## .. _DisplayTrajectory:
-##    http://docs.ros.org/noetic/api/moveit_msgs/html/msg/DisplayTrajectory.html
-##
-## .. _RobotTrajectory:
-##    http://docs.ros.org/noetic/api/moveit_msgs/html/msg/RobotTrajectory.html
-##
-## .. _rospy:
-##    http://docs.ros.org/noetic/api/rospy/html/
-## CALL_SUB_TUTORIAL imports
-## CALL_SUB_TUTORIAL setup
-## CALL_SUB_TUTORIAL basic_info
-## CALL_SUB_TUTORIAL plan_to_joint_state
-## CALL_SUB_TUTORIAL plan_to_pose
-## CALL_SUB_TUTORIAL plan_cartesian_path
-## CALL_SUB_TUTORIAL display_trajectory
-## CALL_SUB_TUTORIAL execute_plan
-## CALL_SUB_TUTORIAL add_box
-## CALL_SUB_TUTORIAL wait_for_scene_update
-## CALL_SUB_TUTORIAL attach_object
-## CALL_SUB_TUTORIAL detach_object
-## CALL_SUB_TUTORIAL remove_object
-## END_TUTORIAL
